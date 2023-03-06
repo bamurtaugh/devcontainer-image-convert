@@ -1,9 +1,10 @@
 {
 	"name": "devcontainer-image-convert",
 	"displayName": "Dev Container Image Converter",
+	"description": "Convert the \"image\" property in a devcontainer.json to a Dockerfile.",
 	"version": "0.0.1",
 	"publisher": "Brigit",
-	"icon": "media/icon-arrow.png",
+	"icon": "media/dev-container-org-arrow.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/bamurtaugh/devcontainer-image-convert"
