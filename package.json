@@ -3,7 +3,7 @@
 	"displayName": "Dev Container Image Converter",
 	"version": "0.0.1",
 	"publisher": "Brigit",
-	"icon": "media/icon.png",
+	"icon": "media/icon-arrow.png",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/bamurtaugh/devcontainer-image-convert"
