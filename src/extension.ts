@@ -49,7 +49,7 @@ export class ImageConverter implements vscode.CodeActionProvider {
 		return false;
 	}
 
-	private createFix(document: vscode.TextDocument, range: vscode.Range, emoji: string, line: vscode.TextLine): vscode.CodeAction {
+	private createFix(document: vscode.TextDocument, range: vscode.Range, fileName: string, line: vscode.TextLine): vscode.CodeAction {
 		// Get the end of the line, minus the comma if it exists (meaning there are further properties after "image")
 		let end = line.text.length - 1;
 		if(line.text.endsWith(',')) {
@@ -63,7 +63,7 @@ export class ImageConverter implements vscode.CodeActionProvider {
 		fix.edit = new vscode.WorkspaceEdit();
 
 		// Create path and file for new Dockerfile
-		const updatedPath = vscode.Uri.joinPath(document.uri, '../', emoji);
+		const updatedPath = vscode.Uri.joinPath(document.uri, '../', fileName);
 		const newFile = vscode.Uri.file(updatedPath.fsPath); 
 		
 		// Create Dockerfile if it doesn't exist
@@ -91,6 +91,16 @@ export class ImageConverter implements vscode.CodeActionProvider {
 		TODO: 
 		 1. Better handle if Dockerfile already exists (rather than silently failing): give option to cancel or overwrite, and overwrite will replace existing contents rather than write same FROM contents again
 		 2. Open the Dockerfile automatically after creation (or provide an extension setting to open Dockerfile automatically)
+		 	
+		 	Possible solution (need to determine where to place):
+			// Open the Dockerfile automatically after creation
+			try {
+				vscode.workspace.fs.stat(newFile);
+				vscode.window.showTextDocument(newFile, { viewColumn: vscode.ViewColumn.Beside });
+			} catch {
+				vscode.window.showInformationMessage(`${newFile.toString(true)} file does *not* exist`);
+				console.log('File does not exist');
+			}
 		*/
 	}
 
@@ -99,4 +109,5 @@ export class ImageConverter implements vscode.CodeActionProvider {
 		action.command = { command: COMMAND, title: 'Learn more about images and Dockerfiles in dev containers', tooltip: 'This will open docs on using images, Dockerfiles, and Docker Compose.' };
 		return action;
 	}
+
 }

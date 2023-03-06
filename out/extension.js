@@ -36,7 +36,7 @@ class ImageConverter {
         }
         return false;
     }
-    createFix(document, range, emoji, line) {
+    createFix(document, range, fileName, line) {
         // Get the end of the line, minus the comma if it exists (meaning there are further properties after "image")
         let end = line.text.length - 1;
         if (line.text.endsWith(',')) {
@@ -48,7 +48,7 @@ class ImageConverter {
         const fix = new vscode.CodeAction('Convert to Dockerfile', vscode.CodeActionKind.RefactorMove);
         fix.edit = new vscode.WorkspaceEdit();
         // Create path and file for new Dockerfile
-        const updatedPath = vscode.Uri.joinPath(document.uri, '../', emoji);
+        const updatedPath = vscode.Uri.joinPath(document.uri, '../', fileName);
         const newFile = vscode.Uri.file(updatedPath.fsPath);
         // Create Dockerfile if it doesn't exist
         // Insert the image contents with FROM
@@ -70,6 +70,16 @@ class ImageConverter {
         TODO:
          1. Better handle if Dockerfile already exists (rather than silently failing): give option to cancel or overwrite, and overwrite will replace existing contents rather than write same FROM contents again
          2. Open the Dockerfile automatically after creation (or provide an extension setting to open Dockerfile automatically)
+            
+            Possible solution (need to determine where to place):
+            // Open the Dockerfile automatically after creation
+            try {
+                vscode.workspace.fs.stat(newFile);
+                vscode.window.showTextDocument(newFile, { viewColumn: vscode.ViewColumn.Beside });
+            } catch {
+                vscode.window.showInformationMessage(`${newFile.toString(true)} file does *not* exist`);
+                console.log('File does not exist');
+            }
         */
     }
     createCommand() {

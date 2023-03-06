@@ -1,4 +1,4 @@
-# Dev container "image" converter
+# Dev container `"image"` to Dockerfile converter
 
 This is a simple Visual Studio Code extension to convert the `"image"` property in a [devcontainer.json](https://containers.dev/implementors/json_reference/) to a Dockerfile.
 
