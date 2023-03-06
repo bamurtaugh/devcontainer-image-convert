@@ -1,6 +1,6 @@
 # Dev container "image" converter
 
-This is a simple extension to convert the "image" property in a devcontainer.json to a Dockerfile.
+This is a simple extension to convert the `"image"` property in a [devcontainer.json](https://containers.dev/implementors/json_reference/) to a Dockerfile.
 
 ![Demo gif of converting "image" to a Dockerfile](./media/image-convert-demo.gif)
 
@@ -15,7 +15,7 @@ This is a simple extension to convert the "image" property in a devcontainer.jso
 
 This extension is under active development. Items left to be investigated or implemented are designated with `TODO` in [extension.ts](./src/extension.ts). Here are the main ones:
 
-1.  Replace the `"image"` property in devcontainer.json with `"build": "."`
+1. Replace the `"image"` property in devcontainer.json with `"build": "."`
 2. Better handle if Dockerfile already exists (rather than silently failing
      - Give option to cancel or overwrite, and overwrite will replace existing contents rather than write same FROM contents again
 3. Open the Dockerfile automatically after creation (or provide an extension setting to open Dockerfile automatically)
@@ -24,6 +24,16 @@ This extension is under active development. Items left to be investigated or imp
 
 This extension is based off the Visual Studio Code [Code Action Provider sample extension](https://github.com/microsoft/vscode-extension-samples/tree/main/code-actions-sample), which shows how to provide code actions in the editor. Code actions are used to implement quick fixes and [refactoring](https://code.visualstudio.com/docs/editor/refactoring) in VS Code.
 
+## Contributing
+
+Please feel free to contribute changes to this extension via [issues](https://github.com/bamurtaugh/devcontainer-image-convert/issues) or [PRs](https://github.com/bamurtaugh/devcontainer-image-convert/pulls) in this repo.
+
+## Further reading
+
+- [Dev container specification](https://containers.dev/)
+- [Guide to using images, Dockerfiles, and Docker Compose](https://containers.dev/guide/dockerfile)
+- [Spec issue tracking presence of Dockerfiles in spec-provided Templates](https://github.com/devcontainers/templates/issues/135)
+
 ## License
 
 The Code Action Provider sample has the following license:
@@ -31,7 +41,3 @@ The Code Action Provider sample has the following license:
 - Licensed under the [MIT](https://github.com/microsoft/vscode-extension-samples/blob/main/LICENSE) License.
 
 You can find the license for this extension in this repo's [LICENSE.md](./LICENSE.md).
-
-## Contributing
-
-Please feel free to contribute changes to this extension via [issues](https://github.com/bamurtaugh/devcontainer-image-convert/issues) or [PRs](https://github.com/bamurtaugh/devcontainer-image-convert/pulls) in this repo.
