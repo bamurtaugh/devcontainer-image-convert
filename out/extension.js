@@ -54,13 +54,22 @@ class ImageConverter {
         // Insert the image contents with FROM
         fix.edit.createFile(newFile, { ignoreIfExists: true });
         fix.edit.insert(newFile, new vscode.Position(0, 0), 'FROM ' + updatedLine);
-        // vscode.workspace.applyEdit(fix.edit).then(() => {
+        // Start the process to replace the "image" property in devcontainer.json
+        // Get the index of the first " in the line (aka where the "image" property starts)
+        const startLineText = line.text.indexOf('"');
+        // Convert startLineText to a Position (required for Range function)
+        const startLineTextPosition = new vscode.Position(line.range.start.line, startLineText);
+        // Replace the "image" property in devcontainer.json with `"build": { "dockerfile": "Dockerfile" },`
+        const dockerfileString = `"build": {
+		// Path is relataive to the devcontainer.json file.
+		"dockerfile": "Dockerfile"
+	},`;
+        fix.edit.replace(document.uri, new vscode.Range(startLineTextPosition, line.range.end), dockerfileString);
         return fix;
         /*
         TODO:
-         1. Replace the "image" property in devcontainer.json with "build": "."
-         2. Better handle if Dockerfile already exists (rather than silently failing): give option to cancel or overwrite, and overwrite will replace existing contents rather than write same FROM contents again
-         3. Open the Dockerfile automatically after creation (or provide an extension setting to open Dockerfile automatically)
+         1. Better handle if Dockerfile already exists (rather than silently failing): give option to cancel or overwrite, and overwrite will replace existing contents rather than write same FROM contents again
+         2. Open the Dockerfile automatically after creation (or provide an extension setting to open Dockerfile automatically)
         */
     }
     createCommand() {

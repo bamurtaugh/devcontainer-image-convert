@@ -1,6 +1,6 @@
 # Dev container "image" converter
 
-This is a simple extension to convert the `"image"` property in a [devcontainer.json](https://containers.dev/implementors/json_reference/) to a Dockerfile.
+This is a simple Visual Studio Code extension to convert the `"image"` property in a [devcontainer.json](https://containers.dev/implementors/json_reference/) to a Dockerfile.
 
 ![Demo gif of converting "image" to a Dockerfile](./media/image-convert-demo.gif)
 
@@ -13,12 +13,13 @@ This is a simple extension to convert the `"image"` property in a [devcontainer.
 
 ## Development status
 
-This extension is under active development. Items left to be investigated or implemented are designated with `TODO` in [extension.ts](./src/extension.ts). Here are the main ones:
+This extension is under active development. 
 
-1. Replace the `"image"` property in devcontainer.json with `"build": "."`
-2. Better handle if Dockerfile already exists (rather than silently failing
+Items left to be investigated or implemented are designated with `TODO` in [extension.ts](./src/extension.ts). Here are the main ones:
+
+1. Better handle if Dockerfile already exists (rather than silently failing
      - Give option to cancel or overwrite, and overwrite will replace existing contents rather than write same FROM contents again
-3. Open the Dockerfile automatically after creation (or provide an extension setting to open Dockerfile automatically)
+2. Open the Dockerfile automatically after creation (or provide an extension setting to open Dockerfile automatically)
 
 ## Code Action Provider Sample
 
