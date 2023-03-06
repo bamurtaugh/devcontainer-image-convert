@@ -20,11 +20,11 @@ This extension is under active development. Items left to be investigated or imp
      - Give option to cancel or overwrite, and overwrite will replace existing contents rather than write same FROM contents again
 3. Open the Dockerfile automatically after creation (or provide an extension setting to open Dockerfile automatically)
 
-# Code Action Provider Sample
+## Code Action Provider Sample
 
 This extension is based off the Visual Studio Code [Code Action Provider sample extension](https://github.com/microsoft/vscode-extension-samples/tree/main/code-actions-sample), which shows how to provide code actions in the editor. Code actions are used to implement quick fixes and [refactoring](https://code.visualstudio.com/docs/editor/refactoring) in VS Code.
 
-# License
+## License
 
 The Code Action Provider sample has the following license:
 - Copyright (c) Microsoft Corporation. All rights reserved.
@@ -32,6 +32,6 @@ The Code Action Provider sample has the following license:
 
 You can find the license for this extension in this repo's [LICENSE.md](./LICENSE.md).
 
-# Contributing
+## Contributing
 
 Please feel free to contribute changes to this extension via [issues](https://github.com/bamurtaugh/devcontainer-image-convert/issues) or [PRs](https://github.com/bamurtaugh/devcontainer-image-convert/pulls) in this repo.
