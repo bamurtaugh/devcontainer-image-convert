@@ -2,7 +2,7 @@
 
 This is a simple Visual Studio Code extension to convert the `"image"` property in a [devcontainer.json](https://containers.dev/implementors/json_reference/) to a Dockerfile.
 
-![Demo gif of converting "image" to a Dockerfile](./media/image-convert-demo.gif)
+![Demo gif of converting "image" to a Dockerfile](./media/image-demo.gif)
 
 ## Running the extension
 
