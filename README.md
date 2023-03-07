@@ -21,9 +21,11 @@ This extension is under active development.
 
 Items left to be investigated or implemented are designated with `TODO` in [extension.ts](./src/extension.ts). Here are the main ones:
 
-1. Better handle if Dockerfile already exists (rather than silently failing
+1. Better handle if Dockerfile already exists (rather than silently failing)
      - Give option to cancel or overwrite, and overwrite will replace existing contents rather than write same FROM contents again
 2. Open the Dockerfile automatically after creation (or provide an extension setting to open Dockerfile automatically)
+3. Enable as a web extension for VS Code for the Web
+4. Opportunities for less hardcoding (i.e. search for "image" or insertion for Dockerfile build property), more json reading
 
 ## Code Action Provider Sample
 
