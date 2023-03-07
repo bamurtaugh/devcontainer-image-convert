@@ -4,6 +4,10 @@ This is a simple Visual Studio Code extension to convert the `"image"` property 
 
 ![Demo gif of converting "image" to a Dockerfile](./media/image-demo.gif)
 
+A devcontainer.json is a structured JSON with Comments (jsonc) metadata format part of the [Dev Container Specification](https://containers.dev/). Tools can use it to store any needed configuration required to develop inside of local or cloud-based containerized coding.
+
+> **Note:** This extension supports your existing dev container configuration files and workflows. To actually create, build, and work within dev containers in VS Code, check out the [Dev Containers extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers), [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces), or the [Dev Container Spec](https://containers.dev/).
+
 ## Running the extension
 
 - Clone the repo: `git clone https://github.com/bamurtaugh/devcontainer-image-convert`

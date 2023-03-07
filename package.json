@@ -1,6 +1,6 @@
 {
 	"name": "devcontainer-image-convert",
-	"displayName": "Dev Container Image Converter",
+	"displayName": "Image to Dockerfile",
 	"description": "Convert the \"image\" property in a devcontainer.json to a Dockerfile.",
 	"version": "0.0.1",
 	"publisher": "Brigit",
